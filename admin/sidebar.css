@@ -1,0 +1,15 @@
+#collapseExample{
+    margin-left:-17px;
+}
+@media(max-width:767px){
+    #collapseExample{
+        margin-left:-250px;
+        position:fixed;
+        min-height: 100vh;
+        z-index:1;
+    }
+    #collapseExample.active{
+        margin-left: -17px;
+        transition: all 0.3s;
+    }
+}

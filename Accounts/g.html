@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<p class="lead fw-bold mt-3">Recent payments</p>
+      <table class="table table-striped text-capitalize">
+        <tr>
+            <th>
+                s/n
+            </th>
+            <th>
+                regno
+            </th>
+            <th>
+                transaction_id
+            </th>
+            <th>
+                Amount
+            </th>
+        </tr>
+      
+      <?php
+      $getpayments=mysqli_query($conn,"select *from payments order by id desc");
+      ?>
+    
+      <?php
+      $x=1;
+      while($res=mysqli_fetch_assoc($getpayments)){
+        ?>
+        <tr>
+            <td>
+                <?php echo $x++;?>
+            </td>
+            <td>
+                <?php echo $res['regno']; ?>
+            </td>
+            <td>
+                <?php echo $res['transaction_id']; ?>
+            </td>
+            <td>
+                <?php echo $res['amount_paid']; ?>
+            </td>
+        </tr>
+        <?php
+}
+      ?>
+      </table>
